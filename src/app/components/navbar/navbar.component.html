@@ -1,0 +1,152 @@
+<nav class="bg-light dark:bg-dark shadow-lg fixed w-full z-50">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex-shrink-0">
+        <a href="/" class="text-2xl font-bold text-primary dark:text-primary"
+          >Portfolio</a
+        >
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a
+          (click)="navigateTo('')"
+          class="text-dark dark:text-light hover:text-primary dark:hover:text-primary cursor-pointer"
+          >Home</a
+        >
+        <a
+          (click)="navigateTo('about')"
+          class="text-dark dark:text-light hover:text-primary dark:hover:text-primary cursor-pointer"
+          >About</a
+        >
+        <a
+          (click)="navigateTo('projects')"
+          class="text-dark dark:text-light hover:text-primary dark:hover:text-primary cursor-pointer"
+          >Projects</a
+        >
+        <a
+          (click)="navigateTo('contact')"
+          class="text-dark dark:text-light hover:text-primary dark:hover:text-primary cursor-pointer"
+          >Contact</a
+        >
+        <button (click)="downloadCV()" class="btn btn-primary">
+          Download CV
+        </button>
+        <button
+          (click)="toggleTheme()"
+          class="text-dark dark:text-light hover:text-primary dark:hover:text-primary focus:outline-none"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            @if (currentTheme === 'light') {
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            />
+            } @else {
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            />
+            }
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center space-x-4">
+        <button
+          (click)="toggleTheme()"
+          class="text-dark dark:text-light hover:text-primary dark:hover:text-primary focus:outline-none"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            @if (currentTheme === 'light') {
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            />
+            } @else {
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            />
+            }
+          </svg>
+        </button>
+        <button
+          (click)="toggleMenu()"
+          class="text-dark dark:text-light hover:text-primary dark:hover:text-primary focus:outline-none"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            @if (!isMenuOpen) {
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            } @if (isMenuOpen) {
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+            }
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden" [class.hidden]="!isMenuOpen">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a
+          (click)="navigateTo('')"
+          class="block text-dark dark:text-light hover:text-primary dark:hover:text-primary cursor-pointer"
+          >Home</a
+        >
+        <a
+          (click)="navigateTo('about')"
+          class="block text-dark dark:text-light hover:text-primary dark:hover:text-primary cursor-pointer"
+          >About</a
+        >
+        <a
+          (click)="navigateTo('projects')"
+          class="block text-dark dark:text-light hover:text-primary dark:hover:text-primary cursor-pointer"
+          >Projects</a
+        >
+        <a
+          (click)="navigateTo('contact')"
+          class="block text-dark dark:text-light hover:text-primary dark:hover:text-primary cursor-pointer"
+          >Contact</a
+        >
+        <button (click)="downloadCV()" class="w-full btn btn-primary mt-2">
+          Download CV
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

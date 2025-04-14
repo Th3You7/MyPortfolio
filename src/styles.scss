@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "styles/styles";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-light text-dark transition-colors duration-200;
+  }
+
+  body.dark {
+    @apply bg-dark-darker text-light;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-secondary;
+  }
+
+  .section {
+    @apply py-16 px-4;
+  }
+
+  body.dark .section {
+    @apply bg-dark-lighter;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}

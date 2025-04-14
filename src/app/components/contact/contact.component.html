@@ -1,0 +1,122 @@
+<section class="section">
+  <div class="container md:w-[30rem] lg:w-[40rem]">
+    <h2 class="text-3xl font-bold text-center mb-12 text-dark dark:text-light">
+      Contact Me
+    </h2>
+
+    <div
+      class="bg-light dark:bg-dark-lighter rounded-lg shadow-md p-4 md:p-8 lg:p-12"
+    >
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <!-- Name Field -->
+        <div>
+          <label
+            for="name"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >Name</label
+          >
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="w-full px-4 py-3 md:py-4 border dark:border-gray-600 dark:bg-dark-lighter dark:text-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            [class.border-red-500]="
+              name?.invalid && (name?.dirty || name?.touched)
+            "
+          />
+          @if (name?.invalid && (name?.dirty || name?.touched)) {
+          <div class="text-red-500 text-sm mt-1">
+            @if (name?.errors?.['required']) {
+            <div>Name is required</div>
+            } @if (name?.errors?.['minlength']) {
+            <div>Name must be at least 2 characters</div>
+            }
+          </div>
+          }
+        </div>
+
+        <!-- Email Field -->
+        <div>
+          <label
+            for="email"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="w-full px-4 py-3 md:py-4 border dark:border-gray-600 dark:bg-dark-lighter dark:text-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            [class.border-red-500]="
+              email?.invalid && (email?.dirty || email?.touched)
+            "
+          />
+          @if (email?.invalid && (email?.dirty || email?.touched)) {
+          <div class="text-red-500 text-sm mt-1">
+            @if (email?.errors?.['required']) {
+            <div>Email is required</div>
+            } @if (email?.errors?.['email']) {
+            <div>Please enter a valid email</div>
+            }
+          </div>
+          }
+        </div>
+
+        <!-- Message Field -->
+        <div>
+          <label
+            for="message"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >Message</label
+          >
+          <textarea
+            id="message"
+            formControlName="message"
+            rows="6"
+            class="w-full px-4 py-3 md:py-4 border dark:border-gray-600 dark:bg-dark-lighter dark:text-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            [class.border-red-500]="
+              message?.invalid && (message?.dirty || message?.touched)
+            "
+          ></textarea>
+          @if (message?.invalid && (message?.dirty || message?.touched)) {
+          <div class="text-red-500 text-sm mt-1">
+            @if (message?.errors?.['required']) {
+            <div>Message is required</div>
+            } @if (message?.errors?.['minlength']) {
+            <div>Message must be at least 10 characters</div>
+            }
+          </div>
+          }
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full btn btn-primary py-3 md:py-4 text-lg"
+          [disabled]="contactForm.invalid"
+        >
+          Send Message
+        </button>
+      </form>
+
+      <!-- Success Message -->
+      @if (isSubmitted) {
+      <div class="mt-6">
+        @if (isSuccess) {
+        <div
+          class="bg-green-100 dark:bg-green-900 dark:text-green-100 text-green-700 p-4 rounded-lg"
+        >
+          Thank you for your message! I'll get back to you soon.
+        </div>
+        } @if (!isSuccess) {
+        <div
+          class="bg-red-100 dark:bg-red-900 dark:text-red-100 text-red-700 p-4 rounded-lg"
+        >
+          Please fill in all fields correctly.
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+</section>

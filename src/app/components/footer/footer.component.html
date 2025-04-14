@@ -1,0 +1,75 @@
+<footer class="bg-dark text-white py-12">
+  <div class="container">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/" class="hover:text-primary transition-colors">Home</a>
+          </li>
+          <li>
+            <a href="/about" class="hover:text-primary transition-colors"
+              >About</a
+            >
+          </li>
+          <li>
+            <a href="/projects" class="hover:text-primary transition-colors"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="/contact" class="hover:text-primary transition-colors"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Connect</h3>
+        <div class="flex space-x-4">
+          <a
+            [href]="socialLinks.github"
+            target="_blank"
+            class="hover:text-primary transition-colors"
+          >
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+          <a
+            [href]="socialLinks.linkedin"
+            target="_blank"
+            class="hover:text-primary transition-colors"
+          >
+            <i class="fab fa-linkedin text-2xl"></i>
+          </a>
+          <a
+            [href]="socialLinks.twitter"
+            target="_blank"
+            class="hover:text-primary transition-colors"
+          >
+            <i class="fab fa-twitter text-2xl"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Contact Info</h3>
+        <ul class="space-y-2">
+          <li>
+            <i class="fas fa-envelope mr-2"></i> your.email&#64;example.com
+          </li>
+          <li><i class="fas fa-phone mr-2"></i> +1 (123) 456-7890</li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i> Your Location</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-12 pt-8 border-t border-gray-700 text-center">
+      <p>&copy; {{ currentYear }} Your Name. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
